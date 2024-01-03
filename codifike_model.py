@@ -13,7 +13,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.preprocessing import scale
 
+#lendo os dados
 data = pd.read_csv('./data/BRA.csv', delimiter=',')
+#tratando os dados
 data = data[data['Season'] == 2023]
 condicoes = [
     (data['Res'] == 'D'),
@@ -35,3 +37,20 @@ print('Total de jogos ganhos em casa: ', home_win)
 print('Total de jogos ganhos fora de casa: ', away_win)
 print('Total de empates: ', draw)
 print('Percentual de jogos ganhos em casa: {: .2f}' .format(win_rate))
+
+#visualização gráfica
+'''
+x = np.arange(3)
+plt.bar(x, val)
+plt.title('Gráfico de vitórias de time da casa, visitante ou empates')
+plt.xticks(x, ('Home', 'Away', 'Draw'))
+plt.show()
+'''
+#resultados por data
+'''
+data['Date'] = pd.to_datetime(data['Date'], format='%d/%m/%Y')
+data_desejada = pd.to_datetime('06/12/2023', format='%d/%m/%Y')
+condicao = data['Date'] == data_desejada
+resultados = data[condicao]
+print(resultados)
+'''
